@@ -1,4 +1,4 @@
-package farmaTCC;
+package conexao;
 
 import java.sql.*;
 
