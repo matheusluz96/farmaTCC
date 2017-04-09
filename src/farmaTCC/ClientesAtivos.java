@@ -48,6 +48,10 @@ public class ClientesAtivos extends Main {
 		JButton btnNewButton = new JButton("Verificar Cliente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VerificaCliente frmVerifica = new VerificaCliente();
+				frmVerifica.setVisible(true);
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
