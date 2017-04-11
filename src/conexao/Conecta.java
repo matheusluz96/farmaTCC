@@ -2,7 +2,7 @@ package conexao;
 
 import java.sql.*;
 
-public class conn {
+public class Conecta {
 	static String status = ""; // informa status da conn
 
 	public static Connection getConn() {
@@ -47,7 +47,7 @@ public class conn {
 
 	public static boolean closeConn() {
 		try {
-			conn.getConn().close();
+			Conecta.getConn().close();
 			return true;
 		} catch (SQLException e) {
 			return false;
@@ -57,6 +57,6 @@ public class conn {
 	// reiniciar conexao
 	public static java.sql.Connection restartConn() {
 		closeConn();
-		return conn.getConn();
+		return Conecta.getConn();
 	}
 }
