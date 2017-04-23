@@ -2,7 +2,6 @@ package farmaTCC;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
