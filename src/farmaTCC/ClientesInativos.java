@@ -25,25 +25,25 @@ import java.awt.Cursor;
 import javax.swing.SwingConstants;
 
 
-public class Estoque extends Main {
+public class ClientesInativos extends Main {
 
 	private JPanel contentPane;
 
 
-	public Estoque() {
+	public ClientesInativos() {
 		setResizable(false);
 		
-		setTitle("Clientes");
+		setTitle("Clientes Inativos");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 640, 547);
+		setBounds(100, 100, 550, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{392, 16, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_contentPane.columnWidths = new int[]{297, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		String[] data = {"one", "two", "three", "four", "one", "two", "three", "four", "one", "two", "three", "four",};
@@ -69,7 +69,7 @@ public class Estoque extends Main {
 		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		list.setBounds(new Rectangle(400, 400, 0, 0));
 		GridBagConstraints gbc_list = new GridBagConstraints();
-		gbc_list.gridheight = 8;
+		gbc_list.gridheight = 4;
 		gbc_list.insets = new Insets(0, 0, 0, 5);
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
@@ -77,73 +77,68 @@ public class Estoque extends Main {
 		listScroller.setPreferredSize(new Dimension(250, 80));
 		contentPane.add(listScroller, gbc_list);
 		
+		JButton btnNewButton = new JButton("Detalhes");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VerificaCliente cliente = new VerificaCliente();
+				cliente.setVisible(true);
+			}
+		});
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton.gridx = 2;
+		gbc_btnNewButton.gridy = 1;
+		contentPane.add(btnNewButton, gbc_btnNewButton);
+		
+		
+	
+		
+
+		
+
+		
+		
+		JButton btnNewButton_2 = new JButton("Remover Cliente");
+		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton_2.gridx = 2;
+		gbc_btnNewButton_2.gridy = 2;
+		contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
+		
+		JButton btnNewButton_1 = new JButton("Adicionar Cliente");
+		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton_1.gridx = 2;
+		gbc_btnNewButton_1.gridy = 3;
+		contentPane.add(btnNewButton_1, gbc_btnNewButton_1);
+		
 		JButton btnNewButton_4 = new JButton("Voltar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
 				frmFarma.setVisible(true);
 				dispose();
 				
 				
 			}
 		});
-		
-		JButton btnNewButton_1 = new JButton("Remover");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		
-	
-		
-
-		
-
-		
-		
-		JButton btnNewButton_2 = new JButton("Detalhes");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-		gbc_btnNewButton_2.gridwidth = 3;
-		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton_2.gridx = 1;
-		gbc_btnNewButton_2.gridy = 5;
-		contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
-		
-		JButton btnNewButton = new JButton("Adicionar");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton.gridwidth = 3;
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 6;
-		contentPane.add(btnNewButton, gbc_btnNewButton);
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.gridwidth = 3;
-		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton_1.gridx = 1;
-		gbc_btnNewButton_1.gridy = 7;
-		contentPane.add(btnNewButton_1, gbc_btnNewButton_1);
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
-		gbc_btnNewButton_4.gridwidth = 3;
 		gbc_btnNewButton_4.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton_4.gridx = 1;
-		gbc_btnNewButton_4.gridy = 8;
+		gbc_btnNewButton_4.gridx = 2;
+		gbc_btnNewButton_4.gridy = 4;
 		contentPane.add(btnNewButton_4, gbc_btnNewButton_4);
-	
-	this.addWindowListener(new WindowAdapter() {
-	   
-	    public void windowClosing(WindowEvent evt) {
-	        
-	        frmFarma.setVisible(true);
-	        dispose(); 
-	    }
-	});
-}
+
+
+		this.addWindowListener(new WindowAdapter() {
+			   
+		    public void windowClosing(WindowEvent evt) {
+		        
+		        frmFarma.setVisible(true);
+		        dispose(); 
+		    }
+		});
+	}
+
 }

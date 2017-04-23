@@ -1,6 +1,5 @@
 package farmaTCC;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,6 +10,8 @@ import java.awt.Insets;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.AbstractListModel;
@@ -21,6 +22,7 @@ import java.awt.Rectangle;
 import javax.swing.border.BevelBorder;
 import java.awt.ComponentOrientation;
 import java.awt.Cursor;
+import javax.swing.SwingConstants;
 
 
 public class ClientesAtivos extends Main {
@@ -31,9 +33,9 @@ public class ClientesAtivos extends Main {
 	public ClientesAtivos() {
 		setResizable(false);
 		
-		setTitle("Clientes");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setTitle("Clientes Ativos");
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setBounds(100, 100, 550, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -68,12 +70,26 @@ public class ClientesAtivos extends Main {
 		list.setBounds(new Rectangle(400, 400, 0, 0));
 		GridBagConstraints gbc_list = new GridBagConstraints();
 		gbc_list.gridheight = 4;
-		gbc_list.insets = new Insets(0, 0, 5, 5);
+		gbc_list.insets = new Insets(0, 0, 0, 5);
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 1;
 		listScroller.setPreferredSize(new Dimension(250, 80));
 		contentPane.add(listScroller, gbc_list);
+		
+		JButton btnNewButton = new JButton("Detalhes");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VerificaCliente cliente = new VerificaCliente();
+				cliente.setVisible(true);
+			}
+		});
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton.gridx = 2;
+		gbc_btnNewButton.gridy = 1;
+		contentPane.add(btnNewButton, gbc_btnNewButton);
 		
 		
 	
@@ -85,6 +101,7 @@ public class ClientesAtivos extends Main {
 		
 		JButton btnNewButton_2 = new JButton("Remover Cliente");
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton_2.gridx = 2;
 		gbc_btnNewButton_2.gridy = 2;
@@ -92,6 +109,7 @@ public class ClientesAtivos extends Main {
 		
 		JButton btnNewButton_1 = new JButton("Adicionar Cliente");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton_1.gridx = 2;
 		gbc_btnNewButton_1.gridy = 3;
@@ -107,9 +125,19 @@ public class ClientesAtivos extends Main {
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
+		gbc_btnNewButton_4.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_4.gridx = 2;
 		gbc_btnNewButton_4.gridy = 4;
 		contentPane.add(btnNewButton_4, gbc_btnNewButton_4);
+	
+		this.addWindowListener(new WindowAdapter() {
+			   
+		    public void windowClosing(WindowEvent evt) {
+		        
+		        frmFarma.setVisible(true);
+		        dispose(); 
+		    }
+		});
 	}
 
 }

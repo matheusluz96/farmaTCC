@@ -7,10 +7,12 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 
 
-public class Main extends JFrame {
+public  class Main extends JFrame implements WindowListener {
 
 	JFrame frmFarma;
 
@@ -44,7 +46,7 @@ public class Main extends JFrame {
 	public void initialize() {
 		
 		frmFarma = new JFrame();
-		frmFarma.setResizable(false);
+		frmFarma.setResizable(true);
 		frmFarma.setTitle("Farma\r\n");
 		frmFarma.setBounds(100, 100, 600, 390);
 		frmFarma.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,12 +60,19 @@ public class Main extends JFrame {
 		JButton btnEstoque = new JButton("Estoque");
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Estoque estoque = new Estoque();
+				estoque.setVisible(true);
+				frmFarma.setVisible(false);
+				
 			}
 		});
 		
 		JButton btnClientesInativos = new JButton("Clientes inativos");
 		btnClientesInativos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ClientesInativos frmInativos = new ClientesInativos();
+				frmInativos.setVisible(true);
+				frmFarma.setVisible(false);
 			}
 		});
 
@@ -90,6 +99,13 @@ public class Main extends JFrame {
 		frmFarma.getContentPane().add(btnClientesInativos, gbc_btnClientesInativos);
 		
 		JButton btnEncomendas = new JButton("Encomendas");
+		btnEncomendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Encomendas encomendas = new Encomendas();
+				encomendas.setVisible(true);
+				frmFarma.setVisible(false);
+			}
+		});
 		GridBagConstraints gbc_btnEncomendas = new GridBagConstraints();
 		gbc_btnEncomendas.fill = GridBagConstraints.BOTH;
 		gbc_btnEncomendas.insets = new Insets(0, 0, 5, 0);
@@ -109,6 +125,51 @@ public class Main extends JFrame {
 		gbc_btnEstoque.gridx = 2;
 		gbc_btnEstoque.gridy = 9;
 		frmFarma.getContentPane().add(btnEstoque, gbc_btnEstoque);
+		
+	}
+
+
+	
+	public void windowClosing(WindowEvent e) {
+		frmFarma.setVisible(true);
+		
+	}
+
+
+	
+	public void windowClosed(WindowEvent e) {
+		
+		
+	}
+
+	
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.AbstractListModel;
@@ -25,15 +26,15 @@ import java.awt.Cursor;
 import javax.swing.SwingConstants;
 
 
-public class Estoque extends Main {
+public class Encomendas extends Main implements WindowListener {
 
 	private JPanel contentPane;
 
 
-	public Estoque() {
+	public Encomendas() {
 		setResizable(false);
 		
-		setTitle("Clientes");
+		setTitle("Encomendas");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 640, 547);
 		contentPane = new JPanel();
@@ -46,7 +47,7 @@ public class Estoque extends Main {
 		gbl_contentPane.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		String[] data = {"one", "two", "three", "four", "one", "two", "three", "four", "one", "two", "three", "four",};
+		String[] data = {"23/04 10:30", "23/04 10:31", "23/04 10:32", "23/04 10:33", "23/04 10:34", "23/04 10:35", "23/04 10:36", "23/04 10:37", "23/04 10:38", "23/04 10:39", "23/04 10:40", "23/04 10:41",};
 		
 		JList<String> list = new JList();
 		list.setModel(new AbstractListModel() {
@@ -80,7 +81,6 @@ public class Estoque extends Main {
 		JButton btnNewButton_4 = new JButton("Voltar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
 				frmFarma.setVisible(true);
 				dispose();
 				
@@ -94,11 +94,6 @@ public class Estoque extends Main {
 			}
 		});
 		
-		
-	
-		
-
-		
 
 		
 		
@@ -108,21 +103,12 @@ public class Estoque extends Main {
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-		gbc_btnNewButton_2.gridwidth = 3;
+		gbc_btnNewButton_2.gridwidth = 4;
 		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton_2.gridx = 1;
-		gbc_btnNewButton_2.gridy = 5;
+		gbc_btnNewButton_2.gridy = 6;
 		contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
-		
-		JButton btnNewButton = new JButton("Adicionar");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton.gridwidth = 3;
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 6;
-		contentPane.add(btnNewButton, gbc_btnNewButton);
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.gridwidth = 3;
 		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
@@ -136,14 +122,15 @@ public class Estoque extends Main {
 		gbc_btnNewButton_4.gridx = 1;
 		gbc_btnNewButton_4.gridy = 8;
 		contentPane.add(btnNewButton_4, gbc_btnNewButton_4);
-	
-	this.addWindowListener(new WindowAdapter() {
-	   
-	    public void windowClosing(WindowEvent evt) {
-	        
-	        frmFarma.setVisible(true);
-	        dispose(); 
-	    }
-	});
-}
+		
+		this.addWindowListener(new WindowAdapter() {
+			   
+		    public void windowClosing(WindowEvent evt) {
+		        
+		        frmFarma.setVisible(true);
+		        dispose(); 
+		    }
+		});
+	}
+
 }

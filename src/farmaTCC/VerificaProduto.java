@@ -12,10 +12,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextArea;
 import java.awt.Font;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-public class VerificaCliente extends JFrame {
+public class VerificaProduto extends Estoque {
 
 	private JPanel contentPane;
 
@@ -27,23 +25,23 @@ public class VerificaCliente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VerificaCliente() {
+	public VerificaProduto() {
 		setResizable(false);
-		setTitle("NomeCliente");
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setTitle("NomeRem\u00E9dio");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 449, 242);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Nome Cliente");
+		JLabel lblNewLabel = new JLabel("Nome Rem\u00E9dio");
 		
 		JButton btnNewButton = new JButton("Encomendas");
 		
 		JTextArea txtrSadasfasdasfasda = new JTextArea();
 		txtrSadasfasdasfasda.setFont(new Font("Arial", Font.PLAIN, 15));
 		txtrSadasfasdasfasda.setEditable(false);
-		txtrSadasfasdasfasda.setText("Nome:\r\nIdade:\r\nTelefone:\r\nEndere\u00E7o:\r\nOBS:");
+		txtrSadasfasdasfasda.setText("Nome:\r\nTarja:\r\nControlado:\r\nPre\u00E7o:\r\nOBS:");
 		
 		JButton btnNewButton_1 = new JButton("Corrigir");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -79,15 +77,5 @@ public class VerificaCliente extends JFrame {
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
-		
-		
-		this.addWindowListener(new WindowAdapter() {
-			   
-		    public void windowClosing(WindowEvent evt) {
-		    
-		        dispose(); 
-		    }
-		});
-
 	}
 }
