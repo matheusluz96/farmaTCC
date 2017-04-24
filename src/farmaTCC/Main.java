@@ -114,6 +114,13 @@ public  class Main extends JFrame implements WindowListener {
 		frmFarma.getContentPane().add(btnEncomendas, gbc_btnEncomendas);
 		
 		JButton btnPromocao = new JButton("Promo\u00E7\u00F5es");
+		btnPromocao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Promocoes promo = new Promocoes();
+				promo.setVisible(true);
+				frmFarma.setVisible(false);
+			}
+		});
 		GridBagConstraints gbc_btnPromocao = new GridBagConstraints();
 		gbc_btnPromocao.fill = GridBagConstraints.BOTH;
 		gbc_btnPromocao.insets = new Insets(0, 0, 5, 0);
